@@ -63,17 +63,17 @@
    systemctl enable nfs --now
    ss -tnplu
    udp    UNCONN     0      0                          *:111                               *:*                   users:(("rpcbind",pid=380,fd=6))
-udp    UNCONN     0      0                          *:2049                                   *:*                  
-udp    UNCONN     0      0                          *:20048                                  *:*                   users:(("rpc.mountd",pid=796,fd=7))
-udp    UNCONN     0      0                       [::]:111                                 [::]:*                   users:(("rpcbind",pid=380,fd=9))
-udp    UNCONN     0      0                       [::]:2049                                [::]:*                  
-udp    UNCONN     0      0                       [::]:20048                               [::]:*                   users:(("rpc.mountd",pid=796,fd=9))
-tcp    LISTEN     0      128                        *:111                                    *:*                   users:(("rpcbind",pid=380,fd=8))
-tcp    LISTEN     0      128                        *:20048                                  *:*                   users:(("rpc.mountd",pid=796,fd=8))
-tcp    LISTEN     0      64                         *:2049                                   *:*                  
-tcp    LISTEN     0      128                     [::]:111                                 [::]:*                   users:(("rpcbind",pid=380,fd=11))
-tcp    LISTEN     0      128                     [::]:20048                             [::]:*                   users:(("rpc.mountd",pid=796,fd=10))
-tcp    LISTEN     0      64                      [::]:2049                                [::]:*                  
+   udp    UNCONN     0      0                          *:2049                                   *:*                  
+   udp    UNCONN     0      0                          *:20048                                  *:*                   users:(("rpc.mountd",pid=796,fd=7))
+   udp    UNCONN     0      0                       [::]:111                                 [::]:*                   users:(("rpcbind",pid=380,fd=9))
+   udp    UNCONN     0      0                       [::]:2049                                [::]:*                  
+   udp    UNCONN     0      0                       [::]:20048                               [::]:*                   users:(("rpc.mountd",pid=796,fd=9))
+   tcp    LISTEN     0      128                        *:111                                    *:*                   users:(("rpcbind",pid=380,fd=8))
+   tcp    LISTEN     0      128                        *:20048                                  *:*                   users:(("rpc.mountd",pid=796,fd=8))
+   tcp    LISTEN     0      64                         *:2049                                   *:*                  
+   tcp    LISTEN     0      128                     [::]:111                                 [::]:*                   users:(("rpcbind",pid=380,fd=11))
+   tcp    LISTEN     0      128                     [::]:20048                             [::]:*                   users:(("rpc.mountd",pid=796,fd=10))
+   tcp    LISTEN     0      64                      [::]:2049                                [::]:*                  
 ```
 
   Создаем и настраиваем директорию для share
@@ -128,7 +128,7 @@ tcp    LISTEN     0      64                      [::]:2049                      
    [root@nfsc vagrant]# cd /mnt/
    [root@nfsc mnt]# mount | grep mnt
    systemd-1 on /mnt type autofs (rw,relatime,fd=26,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=10869)
-192.168.56.10:/srv/share/ on /mnt type nfs (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,hard,proto=udp,timeo=11,retrans=3,sec=sys,mountaddr=192.168.56.10,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=192.168.56.10)
+   192.168.56.10:/srv/share/ on /mnt type nfs (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,hard,proto=udp,timeo=11,retrans=3,sec=sys,mountaddr=192.168.56.10,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=192.168.56.10)
 ```
 
 #### Проверка работоспособности
